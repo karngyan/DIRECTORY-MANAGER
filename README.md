@@ -40,6 +40,8 @@ pip install plotly --upgrade  # Plotly graphing library used in examples
 
 ```
 
+>PS: This is my first dash app, suggestions and advice will be very helpful.
+
 
 
 
