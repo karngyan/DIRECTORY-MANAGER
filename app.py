@@ -137,7 +137,9 @@ def setup_tree(path):
 		),
 		html.Br(),
 		folder_pie(folders),
+		html.Hr(),
 		file_type_pie(file_types),
+		html.Hr(),
 		file_pie(files)
 
 
