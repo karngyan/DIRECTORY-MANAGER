@@ -17,6 +17,8 @@ This is my solution to the [Git-Heat Week-2 Problem](https://github.com/ietbitme
 	```
 	* Open your browser and visit http://127.0.0.1:8050/ 
 
+NOTE: This cannot be deployed as a web app as web application cannot have access to visitor's file system. 
+
 ## About Dash
 
 Dash is a productive Python framework for building web applications.
