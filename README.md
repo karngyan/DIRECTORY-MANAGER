@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 
 ## Screenshot
-![alt text](Screenshots/ss-1.png "Sample Path")
+![alt text](Screenshots/ss-2.png "Sample Path")
 
 
 
