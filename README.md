@@ -9,13 +9,8 @@ This is my solution to the [Git-Heat Week-2 Problem](https://github.com/ietbitme
 	* Size of sub-directory/files
 
 * This is a dash app written in Python3
-* Modules/packages used: os, plotly
-* To run the app:
-	* Go to the command line and enter: 
-	```sh 
-	python app.py 
-	```
-	* Open your browser and visit http://127.0.0.1:8050/ 
+* Modules/packages used: os, plotly, dash
+
 
 NOTE: This cannot be deployed as a web app as web application cannot have access to visitor's file system. 
 
@@ -31,11 +26,22 @@ If you'd like to know more about Dash: [Dash Getting Started](https://dash.plot.
 
 * [Installing Python3](https://www.commonlounge.com/discussion/59b4cc482d6c4ebab9c3653cce230955)
 
-* Installing Dash and plotly
-In your terminal, install several dash libraries. These libraries are under active development, so install and upgrade frequently. Python 2 and 3 are supported.
-```sh
+* Setting up Virtual Environment to run the app (Windows)
+```
+git clone https://github.com/karngyan/DIRECTORY-MANAGER.git
+virtualenv venv
+venv\Scripts\activate
 pip install -r requirements.txt
+python app.py
 
+```
+* If on linux, for activating the environment use:
+```
+venv\bin\activate
+```
+* In order to deactivate:
+```
+deactivate
 ```
 
 >PS: This is my first dash app, suggestions and advice will be very helpful.

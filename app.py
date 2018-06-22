@@ -1,6 +1,6 @@
 #! python3
 
-import os
+import os, webbrowser
 
 import dash
 import dash_core_components as dcc
@@ -246,5 +246,7 @@ def update_subfolder_pie(path):
 
 #Run Server
 if __name__ == '__main__':
+	webbrowser.open('http://127.0.0.1:8050/')
 	app.run_server(debug = True)
+
 
