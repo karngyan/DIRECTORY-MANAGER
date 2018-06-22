@@ -1,13 +1,8 @@
 #! python3
-
 import os
 
-'''
-	Calculates size of a file or a folder
-'''
-
-def size(path):
-
+def get_size(path):
+	"""Calculates size of folder/file, returns the same."""
 	total_size = 0
 
 	if(os.path.isfile(path)):
@@ -22,18 +17,13 @@ def size(path):
 
 
 class Tree:
-	'''
-		Gets all folders, files and file_types in a folder.
-	'''
+	"""Gets all folders, files and file_types in a folder."""
 	def __init__(self, path): 
 		self.path = path  
 		self.folders = []
 		self.files = []
 		self.file_types = {}
 
-	''' 
-		Getters 
-	'''
 
 	def get_folders(self):
 		return self.folders
@@ -47,12 +37,8 @@ class Tree:
 	def total_size(self):
 		return sum(self.files[1])+sum(self.folders[1])
 
-	'''
-		Setters
-	'''
-	
 	def make_tree(self):
-
+		"""Searches for files/folders and file types, stores in folders,files,file_types"""
 		folders = next(os.walk(self.path))[1]
 		folder_labels = []
 		folder_values = []
@@ -66,7 +52,7 @@ class Tree:
 			folder_path = os.path.join(self.path,folder)
 
 			folder_labels.append(folder)
-			folder_values.append(size(folder_path))
+			folder_values.append(get_size(folder_path))
 
 
 		for file in files:
@@ -74,7 +60,7 @@ class Tree:
 			file_name, file_extension = os.path.splitext(file)
 
 			file_labels.append(file)
-			file_values.append(size(file_path))
+			file_values.append(get_size(file_path))
 
 			if(file_extension in self.file_types):
 				self.file_types[file_extension]+=1
