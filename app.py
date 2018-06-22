@@ -249,7 +249,7 @@ def update_pie(path):
 	if(os.path.isfile(path)):
 		if(os.path.isfile(path)):
 			return html.Div([
-			html.H4(f'Location: {path}'),
+			html.Label(f'Location: {path}'),
 			html.Label(f'Total Size: {make_readable(tree.get_size(path))}'),
 			html.Hr(),
 			make_file_pie([
