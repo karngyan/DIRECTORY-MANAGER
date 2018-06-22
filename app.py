@@ -13,7 +13,11 @@ import tree
 curr_path = ''
 
 def make_folder_pie(folders):
-	"""Makes the folder distribution-pie, returns Dash component"""
+	"""Make the folder distribution-pie.
+
+		Argument(s):
+		folders -- List of 2 lists ([folder-name],[folder-size])
+	"""
 	return dcc.Graph(
 		id = 'folder-pie',
 		figure = go.Figure(
@@ -33,7 +37,11 @@ def make_folder_pie(folders):
 	)
 
 def make_file_pie(files):
-	"""Makes the file distribution-pie, returns Dash component"""
+	"""Make the file distribution-pie.
+
+		Argument(s):
+		files -- List of 2 lists ([file-name],[file-size])
+	"""
 	return dcc.Graph(
 		id = 'file-pie',
 		figure = go.Figure(
@@ -53,7 +61,11 @@ def make_file_pie(files):
 	)
 
 def make_file_type_pie(file_types):
-	"""Makes the file-type distribution-pie, returns Dash component"""
+	"""Make the file-type distribution-pie.
+
+		Argument(s):
+		folders -- Dictionary, keys = extenstion, value = file-type-frequency 
+	"""
 	return dcc.Graph(
 		id = 'file-type-pie',
 		figure = go.Figure(
@@ -72,6 +84,11 @@ def make_file_type_pie(file_types):
 
 
 def make_readable(size):
+	"""Make the size of file/folder readable.
+
+		Argument(s):
+		size -- int (size unit: bytes)
+	"""
 	size = int(size)
 	power = 2**10
 	n = 0
@@ -83,7 +100,11 @@ def make_readable(size):
 	return str(round(size,2))+D[n]
 
 def make_pie(path):
+	"""Generates three pies (file, folder, file-type).
 
+		Argument(s):
+		path -- Complete path of the folder (string)
+	"""
 	folder = tree.Tree(path)
 
 	try:
@@ -128,7 +149,11 @@ def make_pie(path):
 	])
 
 def make_dropdown(path):
+	"""Generates dropdown menu containing folder and file list in path.
 
+		Argument(s):
+		path -- Complete path of the folder (string)
+	"""
 	folder = tree.Tree(path)
 
 	try:
