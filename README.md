@@ -48,11 +48,11 @@ deactivate
 
 
 ## Screenshot
-![alt-text](Screenshots/ss-1.png "Sample Path")
+![Sample Path](Screenshots/ss-1.png "Sample Path")
 
 ## Note
 Use the in-built 'Undo-Redo' buttons provided at the left bottom corner to navigate through your searches.
-![alt-text](Screenshots/ss-2/png "Undo-Redo")
+![Udeo-Redo](Screenshots/ss-2.png "Undo-Redo")
 
 
 
