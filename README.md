@@ -37,7 +37,7 @@ python app.py
 ```
 * If on linux, for activating the environment use:
 ```
-venv\bin\activate
+source venv\bin\activate
 ```
 * In order to deactivate:
 ```
@@ -48,8 +48,11 @@ deactivate
 
 
 ## Screenshot
-![alt text](Screenshots/ss-2.png "Sample Path")
+![alt-text](Screenshots/ss-1.png "Sample Path")
 
+## Note
+Use the in-built 'Undo-Redo' buttons provided at the left bottom corner to navigate through your searches.
+![alt-text](Screenshots/ss-2/png "Undo-Redo")
 
 
 

@@ -121,32 +121,70 @@ def make_pie(path):
 	files = folder.get_files()
 	file_types = folder.get_file_types()
 
-	if(len(file_types) == 0 or len(folders[0])==0):
-		if(len(file_types)==0):
-			files[0].append(None)
-			files[1].append(0)
-			file_types = {
-				None : 0
-			}
-		if(len(folders[0])==0):
-			folders[0].append(None)
-			folders[1].append(0)
+	if(len(file_types) != 0 and len(folders[0])==0):
+		return html.Div([
+			html.Label(f'Location: {path}'),
+			html.Label(f'Total Size: {make_readable(folder.total_size())}'),
+			html.Br(),
+			html.Hr(),
+			html.Label(
+				children = 'No sub-folders present.',
+				style = {
+					'textAlign' : 'center' 
+				}
+			),
+			html.Hr(),
+			make_file_type_pie(file_types),
+			html.Hr(),
+			make_file_pie(files)
+		])
+
+
+
+	elif(len(file_types) == 0 and len(folders[0])!=0):
+		return html.Div([
+			html.Label(f'Location: {path}'),
+			html.Label(f'Total Size: {make_readable(folder.total_size())}'),
+			html.Br(),
+			html.Hr(),
+			make_folder_pie(folders),
+			html.Hr(),
+			html.Label(
+				children = 'No files present.',
+				style = {
+					'textAlign' : 'center' 
+				}
+			)
+		])
+
+
+	elif(len(file_types) == 0 and len(folders[0])==0):
+		return html.Div([
+			html.Label(f'Location: {path}'),
+			html.Label(f'Total Size: {make_readable(folder.total_size())}'),
+			html.Br(),
+			html.Label(
+				children = 'Empty Directory',
+				style = {
+					'textAlign' : 'center' 
+				}
+			)
+		])
 
 	else:
 		folders[0].append('_Other Files_')
 		folders[1].append(sum(files[1]))
-
-	return html.Div([
-		html.Label(f'Location: {path}'),
-		html.Label(f'Total Size: {make_readable(folder.total_size())}'),
-		html.Br(),
-		html.Hr(),
-		make_folder_pie(folders),
-		html.Hr(),
-		make_file_type_pie(file_types),
-		html.Hr(),
-		make_file_pie(files)
-	])
+		return html.Div([
+			html.Label(f'Location: {path}'),
+			html.Label(f'Total Size: {make_readable(folder.total_size())}'),
+			html.Br(),
+			html.Hr(),
+			make_folder_pie(folders),
+			html.Hr(),
+			make_file_type_pie(file_types),
+			html.Hr(),
+			make_file_pie(files)
+		])
 
 def make_dropdown(path):
 	"""Generates dropdown menu containing folder and file list in path.
@@ -176,9 +214,10 @@ def make_dropdown(path):
 		)
 
 	for file in files[0]:
+		file_size = make_readable(tree.get_size(os.path.join(path,file)))
 		dropdown_options.append(
 			{
-				'label': f'File: {file}', 'value': os.path.join(path,file) 
+				'label': f'File: {file} ( {file_size} )', 'value': os.path.join(path,file) , 'disabled': 'True'
 			}
 		)
 
@@ -245,18 +284,6 @@ def update_dropdown(path):
 def update_pie(path):
 	global curr_path
 	curr_path = path
-
-	if(os.path.isfile(path)):
-		if(os.path.isfile(path)):
-			return html.Div([
-			html.Label(f'Location: {path}'),
-			html.Label(f'Total Size: {make_readable(tree.get_size(path))}'),
-			html.Hr(),
-			make_file_pie([
-				[os.path.basename(path)] ,
-				[tree.get_size(path)] 
-			])
-		])
 
 	return make_pie(path)
 
