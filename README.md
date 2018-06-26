@@ -26,22 +26,13 @@ If you'd like to know more about Dash: [Dash Getting Started](https://dash.plot.
 
 * [Installing Python3](https://www.commonlounge.com/discussion/59b4cc482d6c4ebab9c3653cce230955)
 
-* Setting up Virtual Environment to run the app (Windows)
+* Install Requirements
 ```
-git clone https://github.com/karngyan/DIRECTORY-MANAGER.git
-virtualenv venv
-venv\Scripts\activate
 pip install -r requirements.txt
+```
+* Run the App
+```
 python app.py
-
-```
-* If on linux, for activating the environment use:
-```
-source venv\bin\activate
-```
-* In order to deactivate:
-```
-deactivate
 ```
 
 >PS: This is my first dash app, suggestions and advice will be very helpful.
